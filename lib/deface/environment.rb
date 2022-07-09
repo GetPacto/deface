@@ -9,7 +9,7 @@ module Deface
     attr_accessor :overrides, :enabled, :haml_support, :namespaced, :slim_support
     def initialize
       @overrides    = Overrides.new
-      @enabled      = true
+      @enabled      = ENV.fetch('DEFACE_DISABLED', false) != 't'
       @haml_support = false
       @slim_support = false
       @actions      = []
